@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { Search } from "lucide-react";
+import { Search, Plus } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FeaturedPost from "@/components/FeaturedPost";
@@ -120,6 +120,15 @@ const Index = () => {
       </main>
       
       <Footer />
+      
+      {/* Floating Add Button */}
+      <Link 
+        to="/posteditor" 
+        className="fixed bottom-8 right-8 size-16 bg-gradient-to-r from-cyber-primary to-cyber-secondary rounded-full flex items-center justify-center shadow-lg hover:shadow-cyber-primary/50 transition-all duration-300 z-50 animate-pulse-neon"
+        aria-label="Create new post"
+      >
+        <Plus className="size-8 text-white" strokeWidth={2.5} />
+      </Link>
     </div>
   );
 };
