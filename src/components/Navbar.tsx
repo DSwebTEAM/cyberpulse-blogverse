@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Search, Menu, X } from "lucide-react";
+import { Search, Menu, X, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
@@ -23,6 +23,7 @@ const Navbar = () => {
         <nav className="hidden md:flex items-center gap-6">
           <Link to="/blog" className="nav-link">Blog</Link>
           <Link to="/categories" className="nav-link">Categories</Link>
+          <Link to="/settings" className="nav-link">Settings</Link>
           <Link to="/about" className="nav-link">About</Link>
         </nav>
 
@@ -53,6 +54,7 @@ const Navbar = () => {
           <nav className="flex flex-col p-4 space-y-4">
             <Link to="/blog" className="nav-link">Blog</Link>
             <Link to="/categories" className="nav-link">Categories</Link>
+            <Link to="/settings" className="nav-link">Settings</Link>
             <Link to="/about" className="nav-link">About</Link>
             <Button className="cyber-button w-full">
               Sign In

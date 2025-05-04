@@ -8,6 +8,8 @@ import Index from "./pages/Index";
 import Blog from "./pages/Blog";
 import Categories from "./pages/Categories";
 import PostEditor from "./pages/PostEditor";
+import Settings from "./pages/Settings";
+import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,6 +25,8 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/posteditor" element={<PostEditor />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/about" element={<About />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
