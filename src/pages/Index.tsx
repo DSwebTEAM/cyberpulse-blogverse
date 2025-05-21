@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
 import { Search, Plus } from "lucide-react";
-import Navbar from "@/components/Navbar";
+import NavbarWithReader from "@/components/NavbarWithReader";
 import Footer from "@/components/Footer";
 import FeaturedPost from "@/components/FeaturedPost";
 import PostCard from "@/components/PostCard";
@@ -11,7 +11,7 @@ import { featuredPosts, recentPosts, categories } from "@/data/mockData";
 const Index = () => {
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar />
+      <NavbarWithReader />
       
       <main className="flex-1">
         {/* Hero Section */}
@@ -38,6 +38,12 @@ const Index = () => {
                 <button className="cyber-button px-5 py-2 rounded-full text-sm">
                   Search
                 </button>
+              </div>
+              
+              <div className="flex justify-center mt-4">
+                <Link to="/reader" className="cyber-button px-6 py-3">
+                  Try Our AI Reader
+                </Link>
               </div>
             </div>
           </div>

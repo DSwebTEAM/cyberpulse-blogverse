@@ -11,6 +11,7 @@ import Categories from "./pages/Categories";
 import PostEditor from "./pages/PostEditor";
 import Settings from "./pages/Settings";
 import About from "./pages/About";
+import Reader from "./pages/Reader";
 import NotFound from "./pages/NotFound";
 
 // Create a client
@@ -30,6 +31,7 @@ const App = () => (
             <Route path="/posteditor" element={<PostEditor />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/about" element={<About />} />
+            <Route path="/reader" element={<Reader />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
