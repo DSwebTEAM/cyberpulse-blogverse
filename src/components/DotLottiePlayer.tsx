@@ -7,6 +7,8 @@ interface DotLottiePlayerProps {
   loop?: boolean;
   style?: React.CSSProperties;
   className?: string;
+  background?: string;
+  speed?: number;
 }
 
 // Define the dotlottie-player element for TypeScript
@@ -34,6 +36,8 @@ const DotLottiePlayer: React.FC<DotLottiePlayerProps> = ({
   loop = true,
   style = { width: '300px', height: '300px' },
   className = '',
+  background = 'transparent',
+  speed = 1,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -56,8 +60,8 @@ const DotLottiePlayer: React.FC<DotLottiePlayerProps> = ({
     // Create the player element
     const player = document.createElement('dotlottie-player');
     player.setAttribute('src', src);
-    player.setAttribute('background', 'transparent');
-    player.setAttribute('speed', '1');
+    player.setAttribute('background', background);
+    player.setAttribute('speed', speed.toString());
     
     if (autoplay) player.setAttribute('autoplay', '');
     if (loop) player.setAttribute('loop', '');
@@ -77,7 +81,7 @@ const DotLottiePlayer: React.FC<DotLottiePlayerProps> = ({
         containerRef.current.innerHTML = '';
       }
     };
-  }, [src, autoplay, loop, style, className]);
+  }, [src, autoplay, loop, style, className, background, speed]);
 
   return <div ref={containerRef}></div>;
 };
