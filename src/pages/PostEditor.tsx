@@ -1,11 +1,11 @@
 
 import { useState } from "react";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Wand2, Image, CheckCircle, Check, FileSpreadsheet, Sparkles, Loader2 } from "lucide-react";
-import { toast } from "sonner";
+import { toast as sonnerToast } from "sonner";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useApiKeys } from "@/hooks/useApiKeys";
@@ -117,7 +117,7 @@ const PostEditor = () => {
             setTitle(enhancedContent.split("\n")[0].replace(/^\d+\.\s+|"/g, ''));
             break;
           case "summarize":
-            toast.success("Summary generated", {
+            sonnerToast("Summary generated", {
               description: enhancedContent,
               duration: 10000,
             });
@@ -129,13 +129,13 @@ const PostEditor = () => {
             setContent(enhancedContent);
         }
         
-        toast.success(`${enhanceType === "grammar" ? "Grammar fixed" : enhanceType === "generate-title" ? "Titles generated" : enhanceType === "summarize" ? "Summary created" : enhanceType === "seo" ? "SEO description created" : "Content enhanced"}!`);
+        sonnerToast(`${enhanceType === "grammar" ? "Grammar fixed" : enhanceType === "generate-title" ? "Titles generated" : enhanceType === "summarize" ? "Summary created" : enhanceType === "seo" ? "SEO description created" : "Content enhanced"}!`);
       } else {
         throw new Error("Unexpected API response format");
       }
     } catch (error) {
       console.error("Error enhancing text:", error);
-      toast.error("Enhancement failed", {
+      sonnerToast("Enhancement failed", {
         description: "There was an issue enhancing your text. Please try again later.",
       });
     } finally {
@@ -146,28 +146,28 @@ const PostEditor = () => {
 
   const handleSave = () => {
     // Placeholder for saving functionality 
-    toast.success("Post saved", {
+    sonnerToast("Post saved", {
       description: "Your post has been saved as a draft.",
     });
   };
 
   const handlePublish = () => {
     if (!title.trim()) {
-      toast.error("Title required", {
+      sonnerToast("Title required", {
         description: "Please add a title to your post.",
       });
       return;
     }
     
     if (!content.trim()) {
-      toast.error("Content required", {
+      sonnerToast("Content required", {
         description: "Please add content to your post.",
       });
       return;
     }
     
     // Placeholder for publishing functionality
-    toast.success("Post published", {
+    sonnerToast("Post published", {
       description: "Your post has been published successfully.",
     });
   };
