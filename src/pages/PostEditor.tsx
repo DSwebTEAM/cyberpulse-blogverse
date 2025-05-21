@@ -13,6 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Label } from "@/components/ui/label";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { AiTools } from "@/components/AiTools";
 
 const PostEditor = () => {
   const [title, setTitle] = useState("");
@@ -24,6 +25,7 @@ const PostEditor = () => {
   const [enhanceType, setEnhanceType] = useState("");
   const [showApiInput, setShowApiInput] = useState(false);
   const [tempApiKey, setTempApiKey] = useState("");
+  const [showAiTools, setShowAiTools] = useState(false);
   const { toast } = useToast();
   const { hasOpenAiKey, getOpenAiKey, setOpenAiKey } = useApiKeys();
 
@@ -217,9 +219,10 @@ const PostEditor = () => {
           ) : null}
           
           <Tabs defaultValue="content" className="space-y-6">
-            <TabsList className="grid w-full grid-cols-2 md:max-w-md mx-auto">
+            <TabsList className="grid w-full grid-cols-3 md:max-w-md mx-auto">
               <TabsTrigger value="content">Content</TabsTrigger>
               <TabsTrigger value="settings">Settings</TabsTrigger>
+              <TabsTrigger value="ai-tools">AI Tools</TabsTrigger>
             </TabsList>
             
             <TabsContent value="content" className="space-y-6">
@@ -407,6 +410,17 @@ const PostEditor = () => {
                   </div>
                 </CardContent>
               </Card>
+            </TabsContent>
+            
+            <TabsContent value="ai-tools" className="space-y-6">
+              <AiTools 
+                content={content}
+                title={title}
+                onUpdateContent={(newContent) => setContent(newContent)}
+                onUpdateTitle={(newTitle) => setTitle(newTitle)}
+                hasOpenAiKey={hasOpenAiKey()}
+                onRequestApiKey={() => setShowApiInput(true)}
+              />
             </TabsContent>
           </Tabs>
         </div>
