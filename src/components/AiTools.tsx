@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Progress } from "@/components/ui/progress";
 import { Loader2, Globe, FileSpreadsheet, Text, CheckCircle, Info } from "lucide-react";
 import { toast } from "sonner";
+import DotLottiePlayer from "./DotLottiePlayer";
 
 interface AiToolsProps {
   content: string;
@@ -321,13 +322,13 @@ export const AiTools = ({
         {showAnimation && (
           <div className="fixed inset-0 flex items-center justify-center z-50 pointer-events-none">
             <div className="w-[300px] h-[300px]">
-              <dotlottie-player
+              <DotLottiePlayer
                 src="https://lottie.host/d295e2f3-73f4-4fd8-aa9f-b984d6953fbe/xlw38xhvYC.lottie"
                 background="transparent"
-                speed="1"
+                speed={1}
                 style={{width: '300px', height: '300px'}}
                 autoplay
-              ></dotlottie-player>
+              />
             </div>
           </div>
         )}

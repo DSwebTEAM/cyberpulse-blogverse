@@ -9,6 +9,25 @@ interface DotLottiePlayerProps {
   className?: string;
 }
 
+// Define the dotlottie-player element for TypeScript
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'dotlottie-player': React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement> & {
+          src?: string;
+          background?: string;
+          speed?: string;
+          loop?: boolean | '';
+          autoplay?: boolean | '';
+          controls?: boolean | '';
+        },
+        HTMLElement
+      >;
+    }
+  }
+}
+
 const DotLottiePlayer: React.FC<DotLottiePlayerProps> = ({
   src,
   autoplay = true,
